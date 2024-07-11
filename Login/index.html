@@ -1,35 +1,38 @@
-<html>
-    <head>
-        <title>Login</title>
-
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="index.js">
-    </head>
-
-    <body>
-        <div class="popup">
-            <div class="close-btn">&times;</div>
-            <div class="form">
-                <h2>Log in</h2>
-                <div class="form-element">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" placeholder="Masukkan Email">
-                </div>
-                <div class="form-element">
-                    <label for="password">Password</label>
-                    <input type="text" id="password" placeholder="Masukkan Password">
-                </div>
-                <div class="form-element">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Remember Me</label>
-                </div>
-                <div class="form-element">
-                    <button>Masuk</button>
-                </div>
-                <div class="form-element">
-                    <a href="#">Lupa Password?</a>
-                </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2>Log in</h2>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Masukkan Email">
+                <span id="email-error" class="error-message"></span>
+            </div>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan Password">
+                <span id="password-error" class="error-message"></span>
+            </div>
+            <div class="form-element">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+            <div class="form-element">
+                <button id="masuk">Masuk</button>
+            </div>
+            <div class="form-element">
+                <a href="#">Lupa Password?</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
