@@ -26,7 +26,7 @@
 }
 
 .popup .form .form-element input[type="text"],
-.popup .form .form-element input[type="text"] {
+.popup .form .form-element input[type="password"] {
     margin-top: 5px;
     display: block;
     width: 100%;
@@ -35,6 +35,7 @@
     border: 1px solid #aaa;
     border-radius: 5px;
 }
+
 
 .popup .form .form-element input[type="checkbox"] {
     margin-right: 5px;
