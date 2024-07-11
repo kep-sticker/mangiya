@@ -7,8 +7,6 @@ document.getElementById('masuk').addEventListener('click', function() {
     emailError.textContent = '';
     passwordError.textContent = '';
 
-    let loginAttempts = 0;
-
     if (!validateEmail(email)) {
         emailError.textContent = 'Harap masukkan email sesuai format.';
         return;
@@ -19,39 +17,20 @@ document.getElementById('masuk').addEventListener('click', function() {
         return;
     }
 
-    const result = checkLogin(email, password);
-
-    if (result === 'TRUE') {
-        window.location.href = 'previous_page_url?email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password);
-    } else if (result === 'FALSE') {
-        loginAttempts++;
-        if (loginAttempts > 2) {
-            passwordError.textContent = 'Password anda salah. Tekan lupa password untuk mereset.';
-        } else {
+    google.script.run.withSuccessHandler(function(result) {
+        if (result === 'EMAIL_NOT_FOUND') {
+            emailError.textContent = 'Email belum terdaftar.';
+        } else if (result === 'PASSWORD_INCORRECT') {
             passwordError.textContent = 'Password salah.';
+        } else if (result === 'LOGIN_SUCCESS') {
+            window.location.href = 'previous_page_url?email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password);
         }
-    }
+    }).withFailureHandler(function(error) {
+        console.error('Error: ' + error.message);
+    }).checkLogin(email, password);
 });
 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
-}
-
-function checkLogin(username, password) {
-  const url = 'https://docs.google.com/spreadsheets/d/146N-_LECl6JQIVboO1sTeU2wYJYQqwoRsD1oH8jUhf8/';
-  const ss = SpreadsheetApp.openByUrl(url);
-  const webAppSheet = ss.getSheetByName("DATA");
-  const getLastRow = webAppSheet.getLastRow();
-  
-  for (let i = 1; i <= getLastRow; i++) {
-    const storedUsername = webAppSheet.getRange(i, 1).getValue().toUpperCase();
-    const storedPassword = webAppSheet.getRange(i, 2).getValue().toUpperCase();
-    
-    if (storedUsername === username.toUpperCase() && storedPassword === password.toUpperCase()) {
-      return 'TRUE';
-    }
-  }
-  
-  return 'FALSE';
 }
