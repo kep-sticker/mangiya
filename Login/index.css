@@ -2,7 +2,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(1,25);
     width: 380px;
     padding: 20px 30px;
     background: #fff;
