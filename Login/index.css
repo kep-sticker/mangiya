@@ -1,8 +1,6 @@
-body {
-    background: linear-gradient(to right, #3a7bd5, #3a6073);
-    font-family: "Raleway",sans-serif;
-}
 .popup {
+    margin:  0px;
+    padding: 0px;
     box-sizing: border-box;
     position: absolute;
     top: -150%;
