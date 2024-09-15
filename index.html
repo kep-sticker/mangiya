@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Site Meta -->
-    <title>Mangiya | Home</title>
+    <title>Edulogy</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -26,18 +26,14 @@
 	
     <!-- Custom & Default Styles -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="script" href="https://script.google.com/macros/s/AKfycbzA6qEqKKteOyR8i_51q-URVrwnH36XFl1th2flMJXHBb22Jlftq-OfGoFmOd8bPEe9/exec">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="popup.css">
 
 	<!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
 		<script src="js/vendor/respond.min.js"></script>
-        <script src="popup.js"></script>
-        
 	<![endif]-->
 
 </head>
@@ -51,28 +47,20 @@
 
     <div id="wrapper">
         <!-- BEGIN # MODAL LOGIN -->
-        <!-- Small modal -->
-        <div class="popup">
-            <div class="close-btn">&times;</div>
-            <div class="form">
-                <h2>Log in</h2>
-                <div class="form-element">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" placeholder="Masukkan Email">
-                </div>
-                <div class="form-element">
-                    <label for="password">Password</label>
-                    <input type="text" id="password" placeholder="Masukkan Password">
-                </div>
-                <div class="form-element">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Remember Me</label>
-                </div>
-                <div class="form-element">
-                    <button>Masuk</button>
-                </div>
-                <div class="form-element">
-                    <a href="#">Lupa Password?</a>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Begin # DIV Form -->
+                    <div id="div-forms">
+                        <form id="login-form">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="flaticon-add" aria-hidden="true"></span>
+                            </button>
+                            <div class="modal-body">
+                                <input class="form-control" type="text" placeholder="What you are looking for?" required>
+                            </div>
+                        </form><!-- End # Login Form -->
+                    </div><!-- End # DIV Form -->
                 </div>
             </div>
         </div>
@@ -90,11 +78,11 @@
                         </div><!-- end left -->
                         <div class="col-md-6 col-sm-6 hidden-xs text-right">
                             <div class="social">
-                                <a class="facebook" href="#" title="Facebook"><i class="bi bi-facebook"></i></a>              
-                                <a class="instagram" href="https://instagram.com/mangiya.official"title="instagram"><i class="bi bi-instagram"></i></a>
-                                <a class="google" href="#" title="Google Plus"><i class="bi bi-google-plus"></i></a>
-                                <a class="linkedin" href="#" title="Linkedin"><i class="bi bi-linkedin"></i></a>
-                                <a class="pinterest" href="#" title="Pinterest"><i class="bi bi-pinterest"></i></a>
+                                <a class="facebook" href="#" data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
+                                <a class="twitter" href="#" data-tooltip="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a class="google" href="#" data-tooltip="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                                <a class="linkedin" href="#" data-tooltip="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                <a class="pinterest" href="#" data-tooltip="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
                             </div><!-- end social -->
                         </div><!-- end left -->
                     </div><!-- end row -->
@@ -111,7 +99,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="https://www.mangiya.my.id"><img src="images/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
                         </div>
                     </div>
 
@@ -155,6 +143,14 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="events.html">Events</a></li>
+                            <li class="dropdown hassubmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="shop.html">Shop Layout</a></li>
+                                    <li><a href="shop-single.html">Shop Single</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -166,10 +162,8 @@
                                 </ul>
                             </li>
                             <li><a href="page-contact.html">Contact</a></li>
-                            <li class="iconitem"><a href="#"><i class="fa fa-search"></i></a></li>
-                            <li class="iconitem"><a id="show-login" href="#show-login" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                              </svg></a></li>
+                            <li class="iconitem"><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-search"></i></a></li>
+                            <li class="iconitem"><a class="shopicon" href="shop-cart.html"><i class="fa fa-shopping-basket"></i> &nbsp;(0)</a></li>
                         </ul>
                     </div>
                 </nav><!-- end navbar -->
@@ -181,7 +175,7 @@
             <div class="home-text-wrapper relative container">
                 <div class="home-message">
                     <p>Learning Management System</p>
-                    <small>Mangiya is the ideal choice for your organization, your business and your online education system. Create your online course now with unlimited page templates, color options, and menu features.</small>
+                    <small>Edulogy is the ideal choice for your organization, your business and your online education system. Create your online course now with unlimited page templates, color options, and menu features.</small>
                     <div class="btn-wrapper">
                         <div class="text-center">
                             <a href="#" class="btn btn-primary wow slideInLeft">Read More</a> &nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-default wow slideInRight">Buy Now</a>
@@ -436,7 +430,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message text-center">
-                            <h3>Howdy, we are Mangiya, we have brought together the best quality services, offers, projects for you!</h3>
+                            <h3>Howdy, we are Edulogy, we have brought together the best quality services, offers, projects for you!</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -450,7 +444,7 @@
                         <div class="box m30">
                             <i class="flaticon-computer-tool-for-education"></i>
                             <h4>Learning system</h4>
-                            <p>All sections required for online training are included to Mangiya.</p>
+                            <p>All sections required for online training are included to Edulogy.</p>
                             <a href="#" class="readmore">Read more</a>
                         </div>
                     </div><!-- end col -->
