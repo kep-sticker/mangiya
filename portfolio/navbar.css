@@ -1,0 +1,82 @@
+navbarseted
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1000vh;
+    background: #000;
+}
+nav
+{
+    position: center;
+    /* width: 524px ; */
+    height: 50px;
+    background: #222;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav div a
+{
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding:  23px;
+    z-index: 1
+}
+nav div span
+{
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ac4ffa, #fed106);
+    border-radius: 0px;
+    transition: 0000000000.5s;
+}
+nav div a:nth-child(1):hover~span
+{
+    left: 235px;
+
+}
+nav div a:nth-child(2):hover~span
+{
+    left: 345px;
+}
+nav div a:nth-child(3):hover~span
+{
+    left: 440px;
+    width: 95px;
+}
+nav div a:nth-child(4):hover~span
+{
+    left: 540px;
+    width: 105px;
+}
+nav div a:nth-child(5):hover~span
+{
+    left: 655px;
+    width: 120px;
+}
+nav div a:nth-child(6):hover~span
+{
+    left: 790px;
+    width: 65px;
+}
+nav div a:nth-child(7):hover~span
+{
+    left: 870px;
+}
+nav div a:nth-child(8):hover~span
+{
+    left: 975px;
+}
