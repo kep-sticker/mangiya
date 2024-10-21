@@ -89,6 +89,9 @@ function getLokasiDariIP(element) {
         });
 }
 
+let nasehatImages = [];
+let currentNasehatIndex = 0;
+
 async function loadConfig() {
     try {
         const response = await fetch('config.txt');
@@ -121,10 +124,18 @@ async function setMarqueeText() {
     marqueeText.textContent = config.marquee_text || 'Teks berjalan default';
 }
 
-async function setNasehatImage() {
+async function setupNasehatImages() {
     const config = await loadConfig();
+    nasehatImages = config.nasehat_images.split(',');
+    const nasehatInterval = parseInt(config.nasehat_interval) || 10; // default 10 detik jika tidak diatur
+    setNasehatImage();
+    setInterval(setNasehatImage, nasehatInterval * 1000);
+}
+
+function setNasehatImage() {
     const nasehatImage = document.getElementById('nasehatImage');
-    nasehatImage.src = config.nasehat_image || '';
+    nasehatImage.src = nasehatImages[currentNasehatIndex];
+    currentNasehatIndex = (currentNasehatIndex + 1) % nasehatImages.length;
 }
 
 async function init() {
@@ -134,7 +145,7 @@ async function init() {
     getLokasiPengguna();
     await setBackground();
     await setMarqueeText();
-    await setNasehatImage();
+    await setupNasehatImages();
 }
 
 init();
