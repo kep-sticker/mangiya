@@ -105,7 +105,14 @@ async function loadConfig() {
         return config;
     } catch (error) {
         console.error('Error loading config:', error);
-        return {};
+        // Konfigurasi default jika gagal memuat config.txt
+        return {
+            background_type: 'color',
+            background_value: '#f0f0f0',
+            marquee_text: 'Ada seorang yang bermata buta -dari kalangan sahabat Nabi- mendatangi Rasulullah Shallallahu ‘Alaihi wa Sallam seraya berkata, “Wahai Rasulullah, aku tidak memiliki orang yang menuntunku untuk mendatangi masjid.” Laki-laki tersebut meminta kepada Nabi Muhammad Shallallahu ‘alaihi wa sallam agar diberi keringanan untuk shalat di rumahnya. Kemudian Rasulullah Shallallahu ‘Alaihi wa Sallam pun memberikan keringanan kepadanya. Ketika laki-laki tersebut berpaling, Rasul Shallallahu ‘Alaihi wa Sallam memanggilnya kembali dan bertanya, “Apakah kamu mendengar adzan panggilan untuk shalat?” Laki-laki tersebut menjawab, “Ya.” Rasul Shallallahu ‘Alaihi wa Sallam bersabda, “Kalau begitu, jawablah (datanglah ke masjid untuk shalat berjamaah)!” (HR. Muslim)',
+            nasehat_images: 'https://example.com/default-image.jpg',
+            nasehat_interval: '10'
+        };
     }
 }
 
