@@ -1,21 +1,28 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
+.main-container {
     display: flex;
-    justify-content: space-between;
+    flex: 1;
     padding: 20px;
+    gap: 20px;
 }
 
 .nasehat-container {
-    width: 40%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +40,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 table {
@@ -52,16 +67,13 @@ th {
 }
 
 #waktuSekarang, #lokasiPengguna {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .marquee-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.7);
@@ -77,4 +89,36 @@ th {
 @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .jadwal-container {
+        width: 100%;
+    }
+
+    #nasehatImage {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    #waktuSekarang, #lokasiPengguna {
+        font-size: 0.9em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
 }
