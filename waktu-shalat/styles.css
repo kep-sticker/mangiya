@@ -10,8 +10,21 @@ body {
 
 .container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 20px;
+}
+
+.nasehat-container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nasehatImage {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
 }
 
 .jadwal-container {

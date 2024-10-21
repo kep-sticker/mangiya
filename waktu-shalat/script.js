@@ -121,6 +121,12 @@ async function setMarqueeText() {
     marqueeText.textContent = config.marquee_text || 'Teks berjalan default';
 }
 
+async function setNasehatImage() {
+    const config = await loadConfig();
+    const nasehatImage = document.getElementById('nasehatImage');
+    nasehatImage.src = config.nasehat_image || '';
+}
+
 async function init() {
     tampilkanJadwalShalat();
     updateWaktuSekarang();
@@ -128,6 +134,7 @@ async function init() {
     getLokasiPengguna();
     await setBackground();
     await setMarqueeText();
+    await setNasehatImage();
 }
 
 init();
