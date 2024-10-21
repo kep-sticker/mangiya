@@ -1,16 +1,30 @@
-function getWaktuShalat() {
-    return {
-        'Subuh': '04:30',
-        'Dzuhur': '12:00',
-        'Ashar': '15:30',
-        'Maghrib': '18:00',
-        'Isya': '19:30'
+let jadwalShalat = {};
+
+async function loadJadwalShalat() {
+    try {
+        const response = await fetch('jadwal_shalat.json');
+        jadwalShalat = await response.json();
+    } catch (error) {
+        console.error('Error loading jadwal shalat:', error);
+    }
+}
+
+function getWaktuShalat(tanggal) {
+    const formatTanggal = tanggal.toISOString().split('T')[0];
+    return jadwalShalat[formatTanggal] || {
+        'Subuh': 'Data tidak tersedia',
+        'Dzuhur': 'Data tidak tersedia',
+        'Ashar': 'Data tidak tersedia',
+        'Maghrib': 'Data tidak tersedia',
+        'Isya': 'Data tidak tersedia'
     };
 }
 
 function tampilkanJadwalShalat() {
-    const waktuShalat = getWaktuShalat();
+    const sekarang = new Date();
+    const waktuShalat = getWaktuShalat(sekarang);
     const tabel = document.getElementById('jadwalShalat');
+    tabel.innerHTML = '<tr><th>Shalat</th><th>Waktu</th></tr>';
 
     for (const [shalat, waktu] of Object.entries(waktuShalat)) {
         const row = tabel.insertRow();
@@ -40,6 +54,7 @@ function updateWaktuSekarang() {
     });
     
     waktuSekarangElement.innerHTML = `${tanggalString}<br>Pukul: ${waktuString}`;
+    tampilkanJadwalShalat();
 }
 
 function getLokasiPengguna() {
@@ -110,7 +125,7 @@ async function loadConfig() {
             background_type: 'color',
             background_value: '#f0f0f0',
             marquee_text: 'Ada seorang yang bermata buta -dari kalangan sahabat Nabi- mendatangi Rasulullah Shallallahu ‘Alaihi wa Sallam seraya berkata, “Wahai Rasulullah, aku tidak memiliki orang yang menuntunku untuk mendatangi masjid.” Laki-laki tersebut meminta kepada Nabi Muhammad Shallallahu ‘alaihi wa sallam agar diberi keringanan untuk shalat di rumahnya. Kemudian Rasulullah Shallallahu ‘Alaihi wa Sallam pun memberikan keringanan kepadanya. Ketika laki-laki tersebut berpaling, Rasul Shallallahu ‘Alaihi wa Sallam memanggilnya kembali dan bertanya, “Apakah kamu mendengar adzan panggilan untuk shalat?” Laki-laki tersebut menjawab, “Ya.” Rasul Shallallahu ‘Alaihi wa Sallam bersabda, “Kalau begitu, jawablah (datanglah ke masjid untuk shalat berjamaah)!” (HR. Muslim)',
-            nasehat_images: 'https://example.com/default-image.jpg',
+            nasehat_images: './default-image.webp',
             nasehat_interval: '10'
         };
     }
@@ -146,6 +161,7 @@ function setNasehatImage() {
 }
 
 async function init() {
+    await loadJadwalShalat();
     tampilkanJadwalShalat();
     updateWaktuSekarang();
     setInterval(updateWaktuSekarang, 1000);
