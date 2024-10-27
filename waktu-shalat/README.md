@@ -1,21 +1,16 @@
 # Jadwal Shalat
 
-Aplikasi web sederhana untuk menampilkan jadwal shalat dengan fitur:
-- Waktu saat ini
-- Lokasi pengguna (jika diizinkan)
-- Jadwal shalat harian
-- Teks berjalan dengan hadits
+Aplikasi sederhana untuk menampilkan jadwal shalat harian.
 
-## Penggunaan
+## Fitur
 
-Buka [https://keep-sticker.github.io/jadwal-shalat](https://keep-sticker.github.io/jadwal-shalat) di browser Anda.
+- Menampilkan jadwal shalat untuk hari ini
+- Data diambil dari file JSON
+- Tampilan responsif
 
-## Konfigurasi
+## Cara Penggunaan
 
-Untuk mengubah background atau teks berjalan, edit file `config.txt`:
-- `background_type`: "color" untuk warna solid, "image" untuk gambar latar.
-- `background_value`: Kode warna hex (#RRGGBB) atau URL gambar.
-- `marquee_text`: Teks yang akan ditampilkan di bagian bawah halaman.
+Buka `index.html` di browser Anda untuk melihat jadwal shalat.
 
 ## Kontribusi
 

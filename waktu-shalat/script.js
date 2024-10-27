@@ -172,3 +172,41 @@ async function init() {
 }
 
 init();
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('jadwal-shalat.json')
+        .then(response => response.json())
+        .then(data => {
+            tampilkanJadwal(data);
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+function tampilkanJadwal(data) {
+    const container = document.getElementById('jadwal-container');
+    const table = document.createElement('table');
+    
+    // Buat header tabel
+    const headerRow = table.insertRow();
+    for (const key in data.jadwal) {
+        const th = document.createElement('th');
+        th.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+        headerRow.appendChild(th);
+    }
+    
+    // Isi data jadwal
+    const dataRow = table.insertRow();
+    for (const key in data.jadwal) {
+        const cell = dataRow.insertCell();
+        cell.textContent = data.jadwal[key];
+    }
+    
+    container.appendChild(table);
+}
+
+// Mencegah klik kanan pada gambar
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.nodeName === 'IMG') {
+        e.preventDefault();
+    }
+}, false);

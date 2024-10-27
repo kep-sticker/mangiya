@@ -6,12 +6,9 @@
 
 body {
     font-family: Arial, sans-serif;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .main-container {
@@ -51,9 +48,8 @@ h1 {
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
-    margin-top: 20px;
+    border-collapse: collapse;
 }
 
 th, td {
@@ -121,4 +117,9 @@ th {
     table {
         font-size: 0.9em;
     }
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
 }
