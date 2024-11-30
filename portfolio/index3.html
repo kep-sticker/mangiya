@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Floating Button Media Sosial</title>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Selamat datang di halaman kami!</h1>
+        <p>Ini adalah contoh halaman dengan floating button media sosial.</p>
+    </div>
+
+    <div class="floating-button" id="floatingButton" onclick="toggleSocialMedia()">
+       <b style="font-size: 50px;">+</b> 
+    </div>
+
+    <div class="social-media-icons" id="socialMediaIcons">
+        <a href="#" class="social-icon facebook">
+            <img src="facebook.png" alt="Facebook" />
+        </a>
+        <a href="#" class="social-icon twitter">
+            <img src="youtube.png" alt="Twitter" />
+        </a>
+        <a href="#" class="social-icon instagram">
+            <img src="whatsapp.png" alt="Instagram" />
+        </a>
+        <a href="#" class="social-icon linkedin">
+            <img src="instagram.png" alt="LinkedIn" />
+        </a>
+    </div>
+
+    <script>
+        function toggleSocialMedia() {
+            const icons = document.getElementById('socialMediaIcons');
+            const button = document.getElementById('floatingButton');
+            icons.classList.toggle('show');
+            button.classList.toggle('rotate'); // Menambahkan kelas rotate
+            setTimeout(() => {
+                button.classList.remove('rotate'); // Menghapus kelas rotate setelah animasi selesai
+            }, 500); // Durasi animasi
+        }
+    </script>
+
+</body>
+</html>

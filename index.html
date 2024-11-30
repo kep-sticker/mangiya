@@ -66,6 +66,21 @@
         </div>
         <!-- END # MODAL LOGIN -->
 
+        <div id="slideshow" class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="upload/slide1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="upload/slide2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="upload/slide3.jpg" style="width:100%">
+            </div>
+            <!-- Tambahkan navigasi slideshow -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
         <header class="header">
             <div class="topbar clearfix">
                 <div class="container">
@@ -451,7 +466,7 @@
 
                     <div class="col-md-6">
                         <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <i class="flaticon-monitor-tablet-and-smartohne"></i>
                             <h4>Works all mobile devices</h4>
                             <p>The most important feature of this template is that it is compatible with all mobile devices. Your customers can also visit your site easily from tablets and phones.</p>
                             <a href="#" class="readmore">Read more</a>
@@ -770,6 +785,30 @@
     <script src="js/custom.js"></script>
     <!-- VIDEO BG PLUGINS -->
     <script src="js/videobg.js"></script>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Ubah gambar setiap 5 detik
+        }
+
+        function plusSlides(n) {
+            slideIndex += n;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            showSlides();
+        }
+    </script>
 
 </body>
 </html>

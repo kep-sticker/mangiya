@@ -1,3 +1,5 @@
+@media only screen and (min-width: 1024px) {
+    
 navbarseted
 {
     margin: 0;
@@ -79,4 +81,6 @@ nav div a:nth-child(7):hover~span
 nav div a:nth-child(8):hover~span
 {
     left: 975px;
+}
+
 }
