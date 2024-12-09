@@ -18,7 +18,7 @@
     transition: background-color 0.4s;
 }
 
-.aksi i {
+.aksi .tmbl-i {
     position: absolute;
     color: white;
     left: 50%;
@@ -55,7 +55,7 @@
     border-radius: 50%;
 }
 
-.tmbl i {
+.tmbl .tmbl-i {
     position: absolute;
     font-size: 18px;
     color: white;
